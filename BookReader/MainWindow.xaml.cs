@@ -7,32 +7,38 @@ using System.Windows.Documents;
 using System.Text;
 using System;
 using System.Speech.Synthesis;
+using System.Xml.Linq;
 
 namespace Project11
 {
     public partial class MainWindow : Window
     {
         SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
-        public List<string> bookList { get; private set; } = new List<string>(); //список всех локальных аадрессов книг
+        public List<Book> bookList { get; private set; } = new List<Book>(); //список книг
+
+        
         public MainWindow()
         {
             InitializeComponent();
             fromFile();//считываем сохранённые адресса в список
             bookListBox.MouseDoubleClick += new MouseButtonEventHandler(bookListBox_DoublClick);
+            
         }
 
         private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e)//обработичк кнопки Открыть
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "TXT files(*.txt) | *.txt"
+                Filter = "TXT files(*.txt;*.fb2) | *.txt; *.fb2"
             };
 
             if (openFileDialog.ShowDialog() == true)
             {
                 string path = openFileDialog.FileName;
-               
-                string _data = File.ReadAllText(path, Encoding.Default);
+                string _data = "Oops something wrong";
+
+
+                decoderFiles(path,ref _data);
 
 
                 Par.Inlines.Clear();
@@ -43,9 +49,14 @@ namespace Project11
 
                 flowDocReader.Document = document;
 
-                if(!bookList.Contains(path))//проверяем есть ли эта книга в списке
+               FileInfo file = new FileInfo(path);
+              
+
+                Book newBook = new Book(Path.GetFileNameWithoutExtension(path), false, path, file.Length);
+
+                if(!bookList.Contains(newBook))//проверяем есть ли эта книга в списке
                 {
-                    bookList.Add(path);//если нет, то добавляем в список
+                    bookList.Add(new Book(Path.GetFileNameWithoutExtension(path), false, path, file.Length));//если нет, то добавляем в список
 
                     bookListBox.Items.Add(Path.GetFileNameWithoutExtension(path));//добавляем в список
                     toFile();//переписываем файл со списком
@@ -62,9 +73,9 @@ namespace Project11
             {
                 using (StreamWriter sw = new StreamWriter("save.txt", false, System.Text.Encoding.Default))
                 {
-                    foreach (var item in bookList)
-                    {
-                        sw.WriteLine(item.ToString());
+                    foreach (Book item in bookList)
+                    {                      
+                        sw.WriteLine(item._name+" "+item._path+" "+item._size+" "+item._favorites);
                     }
                 }
 
@@ -78,24 +89,36 @@ namespace Project11
         }
         private void fromFile()//метод чтения из файла, проверки на существование адресса, и добавления в список
         {
-            if (File.Exists("save.txt"))
+            try
             {
-                using (StreamReader sr = new StreamReader("save.txt", System.Text.Encoding.Default))
+                if (File.Exists("save.txt"))
                 {
-                    string path;
-                    while ((path = sr.ReadLine()) != null)
+                    using (StreamReader sr = new StreamReader("save.txt", System.Text.Encoding.Default))
+                    {                       
+
+                        string fileLine;
+                        while ((fileLine = sr.ReadLine()) != null)
+                        {
+                           
+                            string[] dataObj = fileLine.Split(' ');
+                           
+                            if (File.Exists(dataObj[1]))
+                                bookList.Add(new Book(dataObj[0], Convert.ToBoolean(dataObj[3]), dataObj[1], Convert.ToDouble(dataObj[2])));
+                        }
+                    }
+                    foreach (var item in bookList)
                     {
-                        if (File.Exists(path))
-                            bookList.Add(path);
+
+                        bookListBox.Items.Add(item._name);
                     }
                 }
-                foreach (var item in bookList)
-                {
-                    string fileName = Path.GetFileNameWithoutExtension((string)item);//получаем имя файла по адрессу и без расширения
-                 
-                    bookListBox.Items.Add(fileName);
-                }
             }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Exeption");
+            }
+         
 
         }
 
@@ -108,14 +131,17 @@ namespace Project11
         {
             StopPlay();
 
-            foreach (var item in bookList)
+            foreach (Book item in bookList)
             {
-                string fileName = Path.GetFileNameWithoutExtension((string)item);
-                if(bookListBox.SelectedItem.ToString() == fileName)
+               
+                if(bookListBox.SelectedItem.ToString() == item._name)
                 {
-                    
 
-                    string _data = File.ReadAllText((string)item,Encoding.Default);
+
+                    string _data = "Oops something wrong";
+
+
+                    decoderFiles(item._path, ref _data);
 
 
 
@@ -162,6 +188,38 @@ namespace Project11
         {
             speechSynthesizer.Dispose();
             speechSynthesizer = new SpeechSynthesizer();
+        }
+
+        private void addFavorite(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello");
+        }
+
+        private void delFavorite(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello");
+        }
+
+        private void decoderFiles(string path, ref string _data)
+        {
+           
+            switch (Path.GetExtension(path).ToLower())
+            {
+                case ".txt":
+                     _data = File.ReadAllText(path, Encoding.Default);
+                    break;
+                
+                case ".fb2":
+                    XElement el = XElement.Load(path);
+                   _data = el.Value;
+                    break;
+                case ".epub": break;
+                case ".rtf": break;
+                case ".pdf": break;
+                default:
+                    MessageBox.Show("Невозможно открыть данный файл");
+                    break;
+            }
         }
     }
 }

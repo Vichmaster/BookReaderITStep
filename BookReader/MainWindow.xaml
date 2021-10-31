@@ -9,55 +9,36 @@
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="OpenCommand_Executed"/>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed"/>
-      
-
     </Window.CommandBindings>
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top" Height="50"  >
             <Button Width="80" Margin="1" x:Name="openButton" Command="Open">
                 <Image Source="/Icons/Open.png" />
             </Button>
-
             <Button Width="80" Margin=" 1">
                 <Image Source="/Icons/fonts.png" />
             </Button>
-
             <Button Width="80" Margin=" 1">
-              <Image Source="/Icons/lastbook.png" />
+                <Image Source="/Icons/lastbook.png" />
             </Button>
-
             <Button Width="80" Margin=" 1">
-               <Image Source="/Icons/color.png" />
+                <Image Source="/Icons/color.png" />
             </Button>
             <ToolBar BorderBrush="Black" Margin="1" Background="LightGray" BorderThickness="1">
-               
-                    <Image Source="/Icons/audio.png" />
-                    <Button Width="50" Margin=" 1" Click="Play_Click" >
-                        <Image Source="/Icons/play.png" />
-
-                    </Button>
-                    <Button Width="50" Margin=" 1" Click="Pause_Click" >
-                        <Image Source="/Icons/pause.png" />
-
-                    </Button>
-                    <Button Width="50" Margin=" 1" Click="Stop_Click" >
-                        <Image Source="/Icons/stop.png" />
-
-                    </Button>      
-               
-
+                <Image Source="/Icons/audio.png" />
+                <Button Width="50" Margin=" 1" Click="Play_Click" >
+                    <Image Source="/Icons/play.png" />
+                </Button>
+                <Button Width="50" Margin=" 1" Click="Pause_Click" >
+                    <Image Source="/Icons/pause.png" />
+                </Button>
+                <Button Width="50" Margin=" 1" Click="Stop_Click" >
+                    <Image Source="/Icons/stop.png" />
+                </Button>
             </ToolBar>
-           
-
             <Button Width="80" Margin="1" Command="Close">
-               <Image Source="/Icons/exit.png" />
+                <Image Source="/Icons/exit.png" />
             </Button>
-
-
-
-
-
-
         </WrapPanel>
         <DockPanel>
             <Grid>
@@ -65,20 +46,43 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="bookListBox" FontSize="14"/>
+                <ListBox x:Name="bookListBox" FontSize="14">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="ContextMenu">
+                                <Setter.Value>
+                                    <ContextMenu>
+                                        <ContextMenu.Items>
+                                            <MenuItem x:Name="addfavorite" Header="Добавить в избранное">
+                                                <MenuItem.Style>
+                                                    <Style TargetType="MenuItem">
+                                                        <EventSetter Event="Click" Handler="addFavorite"/>
+                                                    </Style>
+                                                </MenuItem.Style>
+                                            </MenuItem>
+                                            <MenuItem x:Name="delfavorite" Header="Удалить из избранного">
+                                                <MenuItem.Style>
+                                                    <Style TargetType="MenuItem">
+                                                        <EventSetter Event="Click" Handler="delFavorite"/>
+                                                    </Style>
+                                                </MenuItem.Style>
+                                            </MenuItem>
+                                        </ContextMenu.Items>
+                                    </ContextMenu>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
                 <FlowDocumentReader Grid.Column="1" Margin="1"  x:Name="flowDocReader" >
                     <FlowDocument x:Name="flowDoc">
                         <Paragraph x:Name="Par">
                             Welcome to the application "Book Reader",
                         developed by students of the group 36pr31  IT Step Academy
                         </Paragraph>
-                      
                     </FlowDocument>
                 </FlowDocumentReader>
-
             </Grid>
         </DockPanel>
-       
-
     </DockPanel>
 </Window>

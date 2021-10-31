@@ -1,5 +1,4 @@
-C:\Users\kb674\Documents\Plarium_Play_Backup_Codes.txt
-C:\Users\kb674\Documents\name.TXT
-C:\Users\kb674\Downloads\ColorAnimation.txt
-C:\Users\kb674\Downloads\Code.txt
-C:\Users\kb674\Downloads\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net_320930.txt\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net.txt
+Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net C:\Users\kb674\Downloads\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net_320930.txt\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net.txt 429575 False
+Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net C:\Users\kb674\Downloads\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net_320930.fb2\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net.fb2 5593286 False
+name C:\Users\kb674\Documents\name.TXT 13 False
+Plarium_Play_Backup_Codes C:\Users\kb674\Documents\Plarium_Play_Backup_Codes.txt 156 False
