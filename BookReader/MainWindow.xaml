@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project11"
         mc:Ignorable="d"
-        Title="BookReader" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+        Title="BookReader" Height="500" Width="800" WindowStartupLocation="CenterScreen" x:Name="MainWin">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="OpenCommand_Executed"/>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed"/>
@@ -15,7 +15,7 @@
             <Button Width="80" Margin="1" x:Name="openButton" Command="Open">
                 <Image Source="/Icons/Open.png" />
             </Button>
-            <Button Width="80" Margin=" 1">
+            <Button Width="80" Margin=" 1" Click="Font_Click">
                 <Image Source="/Icons/fonts.png" />
             </Button>
             <Button Width="80" Margin=" 1">
@@ -43,10 +43,13 @@
         <DockPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="{Binding ElementName=bookListBox, Path=Width}"/>
+                    <ColumnDefinition Width="{Binding ElementName=ListBoxBtn, Path=Width}"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="bookListBox" FontSize="14">
+                <Button Grid.Column="1" VerticalAlignment="Top"  x:Name="ListBoxBtn" FontSize="14" 
+                        HorizontalAlignment="Left" Height="{Binding ElementName=MainWin, Path=Height}" Width="20" Click="openList"/>
+                <ListBox Grid.Column="0" x:Name="bookListBox" Width="0">
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="ContextMenu">
@@ -71,10 +74,16 @@
                                     </ContextMenu>
                                 </Setter.Value>
                             </Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=_favorites}" Value="True">
+                                    <!--Не знаю почему но не шаманит-->
+                                    <Setter Property="Background" Value="Salmon" />
+                                </DataTrigger>
+                            </Style.Triggers>
                         </Style>
                     </ListBox.ItemContainerStyle>
                 </ListBox>
-                <FlowDocumentReader Grid.Column="1" Margin="1"  x:Name="flowDocReader" >
+                <FlowDocumentReader Grid.Column="2" Margin="1"  x:Name="flowDocReader" >
                     <FlowDocument x:Name="flowDoc">
                         <Paragraph x:Name="Par">
                             Welcome to the application "Book Reader",

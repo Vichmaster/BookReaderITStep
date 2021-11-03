@@ -8,6 +8,7 @@ using System.Text;
 using System;
 using System.Speech.Synthesis;
 using System.Xml.Linq;
+using System.Xml;
 
 namespace Project11
 {
@@ -16,13 +17,13 @@ namespace Project11
         SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
         public List<Book> bookList { get; private set; } = new List<Book>(); //список книг
 
-        
+        public bool OpenList { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             fromFile();//считываем сохранённые адресса в список
             bookListBox.MouseDoubleClick += new MouseButtonEventHandler(bookListBox_DoublClick);
-            
+            OpenList = false;
         }
 
         private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e)//обработичк кнопки Открыть
@@ -138,7 +139,7 @@ namespace Project11
                 {
 
 
-                    string _data = "Oops something wrong";
+                    string _data = "";
 
 
                     decoderFiles(item._path, ref _data);
@@ -202,23 +203,51 @@ namespace Project11
 
         private void decoderFiles(string path, ref string _data)
         {
-           
-            switch (Path.GetExtension(path).ToLower())
+
+            try
             {
-                case ".txt":
-                     _data = File.ReadAllText(path, Encoding.Default);
-                    break;
-                
-                case ".fb2":
-                    XElement el = XElement.Load(path);
-                   _data = el.Value;
-                    break;
-                case ".epub": break;
-                case ".rtf": break;
-                case ".pdf": break;
-                default:
-                    MessageBox.Show("Невозможно открыть данный файл");
-                    break;
+                switch (Path.GetExtension(path).ToLower())
+                {
+                    case ".txt":
+                        _data = File.ReadAllText(path, Encoding.Default);
+                        break;
+
+                    case ".fb2":
+                        XElement el = XElement.Load(path);
+                        _data = el.Value;
+                        break;
+                    case ".epub": break;
+                    case ".rtf": break;
+                    case ".pdf": break;
+                    default:
+                        MessageBox.Show("Невозможно открыть данный файл");
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Exeption");
+            }
+        }
+
+        private void Font_Click(object sender, RoutedEventArgs e)
+        {
+            FontDialogBox dialogBox = new FontDialogBox(Par);
+            dialogBox.Show();
+        }
+
+        private void openList(object sender, RoutedEventArgs e)
+        {
+            if (OpenList)
+            {
+                bookListBox.Width = 0;
+                OpenList = false;
+            }
+            else
+            {
+                bookListBox.Width = 200;
+                OpenList = true;
             }
         }
     }
