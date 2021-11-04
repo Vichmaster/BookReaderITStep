@@ -9,6 +9,7 @@ using System;
 using System.Speech.Synthesis;
 using System.Xml.Linq;
 using System.Xml;
+using System.Windows.Media.Imaging;
 
 namespace Project11
 {
@@ -243,11 +244,13 @@ namespace Project11
             {
                 bookListBox.Width = 0;
                 OpenList = false;
+                ListBoxImg.Source = new BitmapImage(new Uri($"../../Icons/openArrows.png", UriKind.Relative));
             }
             else
             {
                 bookListBox.Width = 200;
                 OpenList = true;
+                ListBoxImg.Source = new BitmapImage(new Uri($"../../Icons/closeArrows.png", UriKind.Relative));
             }
         }
     }
