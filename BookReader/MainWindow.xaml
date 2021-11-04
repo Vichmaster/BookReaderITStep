@@ -11,7 +11,7 @@
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed"/>
     </Window.CommandBindings>
     <DockPanel>
-        <WrapPanel DockPanel.Dock="Top" Height="50"  >
+        <WrapPanel DockPanel.Dock="Top" Height="50">
             <Button Width="80" Margin="1" x:Name="openButton" Command="Open">
                 <Image Source="/Icons/Open.png" />
             </Button>
@@ -47,8 +47,9 @@
                     <ColumnDefinition Width="{Binding ElementName=ListBoxBtn, Path=Width}"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" VerticalAlignment="Top"  x:Name="ListBoxBtn" FontSize="14" 
-                        HorizontalAlignment="Left" Height="{Binding ElementName=MainWin, Path=Height}" Width="20" Click="openList"/>
+                <Button Grid.Column="1" VerticalAlignment="Stretch"  x:Name="ListBoxBtn" FontSize="14" HorizontalAlignment="Left" Width="20" Click="openList">
+                    <Image Source="/Icons/openArrows.png" x:Name="ListBoxImg"/>
+                </Button>
                 <ListBox Grid.Column="0" x:Name="bookListBox" Width="0">
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
@@ -74,12 +75,6 @@
                                     </ContextMenu>
                                 </Setter.Value>
                             </Setter>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=_favorites}" Value="True">
-                                    <!--Не знаю почему но не шаманит-->
-                                    <Setter Property="Background" Value="Salmon" />
-                                </DataTrigger>
-                            </Style.Triggers>
                         </Style>
                     </ListBox.ItemContainerStyle>
                 </ListBox>

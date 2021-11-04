@@ -133,5 +133,9 @@
   <ItemGroup>
     <Resource Include="Icons\stop.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\closeArrows.png" />
+    <Resource Include="Icons\openArrows.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
