@@ -5,38 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project11"
         mc:Ignorable="d"
-        Title="BookReader" Height="500" Width="800" WindowStartupLocation="CenterScreen" x:Name="MainWin">
+        Title="BookReader" Height="500" Width="800" WindowStartupLocation="CenterScreen" x:Name="MainWin" Style="{DynamicResource WindowStyle}">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="OpenCommand_Executed"/>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed"/>
     </Window.CommandBindings>
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top" Height="50">
-            <Button Width="80" Margin="1" x:Name="openButton" Command="Open">
+            <Button Width="80" Margin="1" x:Name="openButton" Command="Open" Style="{DynamicResource ButtonStyle}">
                 <Image Source="/Icons/Open.png" />
             </Button>
-            <Button Width="80" Margin=" 1" Click="Font_Click">
+            <Button Width="80" Margin=" 1" Click="Font_Click" Style="{DynamicResource ButtonStyle}">
                 <Image Source="/Icons/fonts.png" />
             </Button>
-            <Button Width="80" Margin=" 1">
+            <Button Width="80" Margin=" 1" Style="{DynamicResource ButtonStyle}">
                 <Image Source="/Icons/lastbook.png" />
             </Button>
-            <Button Width="80" Margin=" 1">
+            <Button Width="80" Margin=" 1" x:Name="styleBtn" Click="styleBtn_Click" Style="{DynamicResource ButtonStyle}">
                 <Image Source="/Icons/color.png" />
             </Button>
-            <ToolBar BorderBrush="Black" Margin="1" Background="LightGray" BorderThickness="1">
+            <ToolBar Margin="1" Style="{DynamicResource ToolBarStyle}">
                 <Image Source="/Icons/audio.png" />
-                <Button Width="50" Margin=" 1" Click="Play_Click" >
+                <Button Width="50" Margin=" 1" Click="Play_Click" Style="{DynamicResource ButtonStyle}">
                     <Image Source="/Icons/play.png" />
                 </Button>
-                <Button Width="50" Margin=" 1" Click="Pause_Click" >
+                <Button Width="50" Margin=" 1" Click="Pause_Click" Style="{DynamicResource ButtonStyle}">
                     <Image Source="/Icons/pause.png" />
                 </Button>
-                <Button Width="50" Margin=" 1" Click="Stop_Click" >
+                <Button Width="50" Margin=" 1" Click="Stop_Click" Style="{DynamicResource ButtonStyle}">
                     <Image Source="/Icons/stop.png" />
                 </Button>
             </ToolBar>
-            <Button Width="80" Margin="1" Command="Close">
+            <Button Width="80" Margin="1" Command="Close" Style="{DynamicResource ButtonStyle}">
                 <Image Source="/Icons/exit.png" />
             </Button>
         </WrapPanel>
@@ -47,10 +47,10 @@
                     <ColumnDefinition Width="{Binding ElementName=ListBoxBtn, Path=Width}"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" VerticalAlignment="Stretch"  x:Name="ListBoxBtn" FontSize="14" HorizontalAlignment="Left" Width="20" Click="openList">
+                <Button Grid.Column="1" VerticalAlignment="Stretch"  x:Name="ListBoxBtn" FontSize="14" HorizontalAlignment="Left" Width="20" Click="openList" Style="{DynamicResource ButtonStyle}">
                     <Image Source="/Icons/openArrows.png" x:Name="ListBoxImg"/>
                 </Button>
-                <ListBox Grid.Column="0" x:Name="bookListBox" Width="0">
+                <ListBox Grid.Column="0" x:Name="bookListBox" Width="0" Style="{DynamicResource ListBoxStyle}">
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="ContextMenu">
@@ -78,8 +78,8 @@
                         </Style>
                     </ListBox.ItemContainerStyle>
                 </ListBox>
-                <FlowDocumentReader Grid.Column="2" Margin="1"  x:Name="flowDocReader" >
-                    <FlowDocument x:Name="flowDoc">
+                <FlowDocumentReader Grid.Column="2" Margin="1"  x:Name="flowDocReader" Style="{DynamicResource FlowDocumentStyle}">
+                    <FlowDocument x:Name="flowDoc" >
                         <Paragraph x:Name="Par">
                             Welcome to the application "Book Reader",
                         developed by students of the group 36pr31  IT Step Academy

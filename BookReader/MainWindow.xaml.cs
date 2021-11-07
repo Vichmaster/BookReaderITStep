@@ -15,6 +15,7 @@ namespace Project11
 {
     public partial class MainWindow : Window
     {
+        private bool _currStyle;
         SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
         public List<Book> bookList { get; private set; } = new List<Book>(); //список книг
 
@@ -252,6 +253,29 @@ namespace Project11
                 OpenList = true;
                 ListBoxImg.Source = new BitmapImage(new Uri($"../../Icons/closeArrows.png", UriKind.Relative));
             }
+        }
+
+        private void styleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            _currStyle = !_currStyle;
+            string style;
+            if (_currStyle)
+            {
+                style = "dark";
+
+            }
+            else
+            {
+                style = "light";
+            }
+            // определяем путь к файлу ресурсов
+            var uri = new Uri("Styles/" + style + ".xaml", UriKind.Relative);
+            // загружаем словарь ресурсов
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            // очищаем коллекцию ресурсов приложения
+            Application.Current.Resources.Clear();
+            // добавляем загруженный словарь ресурсов
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
     }
 }
