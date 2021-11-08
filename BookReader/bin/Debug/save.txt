@@ -1,4 +1,3 @@
-Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net C:\Users\kb674\Downloads\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net_320930.txt\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net.txt 429575 False
-Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net C:\Users\kb674\Downloads\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net_320930.fb2\Rutkovskiy_Dzhuri_1_Dzhuri-kozaka-Shvayki_RuLit_Net.fb2 5593286 False
 ColorAnimation C:\Users\kb674\Downloads\ColorAnimation.txt 4650 False
-Code (1) C:\Users\kb674\Downloads\Code (1).txt 1278 False
+HW16 C:\Users\kb674\Downloads\HW16.txt 381 False
+Code C:\Users\kb674\Downloads\Code.txt 1939 False

@@ -79,23 +79,94 @@ C:\Users\Panzerfaust\Source\Repos\BookReader\BookReader\obj\Debug\BookReader.csp
 C:\Users\Panzerfaust\Source\Repos\BookReader\BookReader\obj\Debug\BookReader.csproj.CoreCompileInputs.cache
 C:\Users\Panzerfaust\Source\Repos\BookReader\BookReader\obj\Debug\Project11.exe
 C:\Users\Panzerfaust\Source\Repos\BookReader\BookReader\obj\Debug\Project11.pdb
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\bin\Debug\Project11.exe.config
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\bin\Debug\Project11.exe
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\bin\Debug\Project11.pdb
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\BookReader.csproj.AssemblyReference.cache
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\Styles\dark.baml
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\Styles\light.baml
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\FontDialogBox.g.cs
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\MainWindow.g.cs
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\App.g.cs
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\Project11_MarkupCompile.cache
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\Project11_MarkupCompile.lref
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\App.baml
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\FontDialogBox.baml
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\MainWindow.baml
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\Project11.g.resources
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\Project11.Properties.Resources.resources
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\BookReader.csproj.GenerateResource.cache
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\BookReader.csproj.CoreCompileInputs.cache
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\Project11.exe
-C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReader\obj\Debug\Project11.pdb
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe.config
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\bin\Debug\Project11.pdb
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csprojAssemblyReference.cache
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.g.cs
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.g.cs
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\App.g.cs
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.cache
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.lref
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.baml
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.baml
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\Project11.g.resources
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\Project11.Properties.Resources.resources
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.GenerateResource.cache
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.CoreCompileInputs.cache
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\Project11.exe
+C:\Users\Виталий\Desktop\BookReaderITStep-main\BookReader\obj\Debug\Project11.pdb
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe.config
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\bin\Debug\Project11.pdb
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csprojAssemblyReference.cache
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.g.cs
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.g.cs
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\App.g.cs
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.cache
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.lref
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.baml
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.baml
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\Project11.g.resources
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\Project11.Properties.Resources.resources
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.GenerateResource.cache
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.CoreCompileInputs.cache
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\Project11.exe
+D:\Мои работы\Командный проект и управление командными проектами\Тема 5 - Оценивание задач. Демо\BookReaderITStep-main\BookReader\obj\Debug\Project11.pdb
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe.config
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.pdb
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.AssemblyReference.cache
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.g.cs
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.g.cs
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\App.g.cs
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.cache
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.lref
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.baml
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.baml
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.g.resources
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.Properties.Resources.resources
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.GenerateResource.cache
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.CoreCompileInputs.cache
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.exe
+C:\Users\kb674\Downloads\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.pdb
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe.config
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.pdb
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.AssemblyReference.cache
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Styles\dark.baml
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Styles\light.baml
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.g.cs
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.g.cs
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\App.g.cs
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.cache
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.lref
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\App.baml
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.baml
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.baml
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.g.resources
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.Properties.Resources.resources
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.GenerateResource.cache
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.CoreCompileInputs.cache
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.exe
+C:\Users\annut\OneDrive\Рабочий стол\GroupProject\BookReaderITStep\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.pdb
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe.config
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.exe
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\bin\Debug\Project11.pdb
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.AssemblyReference.cache
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Styles\dark.baml
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Styles\light.baml
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.g.cs
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.g.cs
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\App.g.cs
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.cache
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11_MarkupCompile.lref
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\App.baml
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\FontDialogBox.baml
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\MainWindow.baml
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.g.resources
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.Properties.Resources.resources
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.GenerateResource.cache
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\BookReader.csproj.CoreCompileInputs.cache
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.exe
+C:\Users\kb674\Downloads\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-3f2d52595573cebb4d735274272ade8463e5d26b\BookReaderITStep-main\BookReaderITStep-main\BookReader\obj\Debug\Project11.pdb

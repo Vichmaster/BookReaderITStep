@@ -10,6 +10,8 @@ using System.Speech.Synthesis;
 using System.Xml.Linq;
 using System.Xml;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Project11
 {
@@ -109,10 +111,17 @@ namespace Project11
                                 bookList.Add(new Book(dataObj[0], Convert.ToBoolean(dataObj[3]), dataObj[1], Convert.ToDouble(dataObj[2])));
                         }
                     }
+                    readFavorites_fromfile();
                     foreach (var item in bookList)
                     {
-
-                        bookListBox.Items.Add(item._name);
+                        if (item._favorites)
+                        {
+                            bookListBox.Items.Add(new ListBoxItem() { Content = item._name, Foreground = Brushes.Red });
+                        }
+                        else
+                        {
+                            bookListBox.Items.Add(new ListBoxItem() { Content = item._name });
+                        }
                     }
                 }
             }
@@ -132,30 +141,38 @@ namespace Project11
 
         void bookListBox_DoublClick(object sender, EventArgs e)//открытие файла при двойном клике в списке
         {
-            StopPlay();
-
-            foreach (Book item in bookList)
+            try
             {
-               
-                if(bookListBox.SelectedItem.ToString() == item._name)
+                StopPlay();
+
+                string selctedItem = ((ListBoxItem)bookListBox.SelectedItem).Content.ToString();
+                foreach (Book item in bookList)
                 {
 
-
-                    string _data = "";
-
-
-                    decoderFiles(item._path, ref _data);
+                    if (selctedItem == item._name)
+                    {
 
 
+                        string _data = "";
 
-                    Par.Inlines.Clear();
-                    Par.Inlines.Add(_data);
 
-                    FlowDocument document = new FlowDocument();
-                    document.Blocks.Add(Par);
+                        decoderFiles(item._path, ref _data);
 
-                    flowDocReader.Document = document;
+
+
+                        Par.Inlines.Clear();
+                        Par.Inlines.Add(_data);
+
+                        FlowDocument document = new FlowDocument();
+                        document.Blocks.Add(Par);
+
+                        flowDocReader.Document = document;
+                    }
                 }
+            }
+            catch (Exception) 
+            {
+                
             }
         }
 
@@ -192,18 +209,82 @@ namespace Project11
             speechSynthesizer.Dispose();
             speechSynthesizer = new SpeechSynthesizer();
         }
+        private void AddFavoriteToFile()
+        {
+            using (StreamWriter stream = new StreamWriter("favorites.txt", false, System.Text.Encoding.Default))
+            {
+                foreach (Book item in bookList)
+                {
+                    if (item._favorites)
+                    {
+                        stream.WriteLine(item._name);
+                    }
+                }
+            }
+        }
+        void readFavorites_fromfile()
+        {
+            try
+            {
+                if (File.Exists("favorites.txt"))
+                {
+                    string text;
 
+                    using (StreamReader fs = new StreamReader("favorites.txt", Encoding.GetEncoding(1251)))
+                    {
+                        while (true)
+                        {
+                            string temp = fs.ReadLine();
+                            if (temp == null) break;
+                            text = temp;
+                            foreach (Book item in bookList)
+                            {
+                                if (item._name == text)
+                                    item._favorites = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void addFavorite(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello");
+            var menuItem = (MenuItem)sender;
+            var contextMenu = (ContextMenu)menuItem.Parent;
+            var target = (ListBoxItem)contextMenu.PlacementTarget;
+            target.Foreground = Brushes.Red;
+            foreach (Book item in bookList)
+            {
+                if (item._name == target.Content.ToString())
+                {
+                    item._favorites = true;
+                }
+            }
+            AddFavoriteToFile();
+            Fav_Show();
         }
 
         private void delFavorite(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello");
+            var menuItem = (MenuItem)sender;
+            var contextMenu = (ContextMenu)menuItem.Parent;
+            var target = (ListBoxItem)contextMenu.PlacementTarget;
+            target.Foreground = Brushes.Black;
+            foreach (Book item in bookList)
+            {
+                if (item._name == target.Content.ToString())
+                {
+                    item._favorites = false;
+                }
+            }
+            AddFavoriteToFile();
+            Fav_Show();
         }
-
-        private void decoderFiles(string path, ref string _data)
+            private void decoderFiles(string path, ref string _data)
         {
 
             try
@@ -253,6 +334,42 @@ namespace Project11
                 OpenList = true;
                 ListBoxImg.Source = new BitmapImage(new Uri($"../../Icons/closeArrows.png", UriKind.Relative));
             }
+        }
+
+        int clickFav = 0;
+        private void Fav_Show()
+        {
+            if (clickFav % 2 != 0)
+            {
+                bookListBox.Items.Clear();
+                foreach (Book item in bookList)
+                {
+                    if (item._favorites)
+                    {
+                        bookListBox.Items.Add(new ListBoxItem() { Content = item._name, Foreground = Brushes.Red });
+                    }
+                }
+            }
+            else
+            {
+                bookListBox.Items.Clear();
+                foreach (var item in bookList)
+                {
+                    if (item._favorites)
+                    {
+                        bookListBox.Items.Add(new ListBoxItem() { Content = item._name, Foreground = Brushes.Red });
+                    }
+                    else
+                    {
+                        bookListBox.Items.Add(new ListBoxItem() { Content = item._name });
+                    }
+                }
+            }
+        }
+        private void Button_Fav_Click(object sender, RoutedEventArgs e)
+        {
+            clickFav++;
+            Fav_Show();
         }
 
         private void styleBtn_Click(object sender, RoutedEventArgs e)

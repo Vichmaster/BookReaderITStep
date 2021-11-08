@@ -146,5 +146,8 @@
     <Resource Include="Icons\closeArrows.png" />
     <Resource Include="Icons\openArrows.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\favorites.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

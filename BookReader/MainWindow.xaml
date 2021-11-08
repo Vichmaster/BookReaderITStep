@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project11"
         mc:Ignorable="d"
-        Title="BookReader" Height="500" Width="800" WindowStartupLocation="CenterScreen" x:Name="MainWin" Style="{DynamicResource WindowStyle}">
+        Title="BookReader" Height="500" Width="800" WindowStartupLocation="CenterScreen" x:Name="MainWin"  Style="{DynamicResource WindowStyle}">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="OpenCommand_Executed"/>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed"/>
@@ -20,6 +20,9 @@
             </Button>
             <Button Width="80" Margin=" 1" Style="{DynamicResource ButtonStyle}">
                 <Image Source="/Icons/lastbook.png" />
+            </Button>
+            <Button Width="80" Margin=" 1" Click="Button_Fav_Click" Style="{DynamicResource ButtonStyle}">
+                <Image Source="/Icons/favorites.png"/>
             </Button>
             <Button Width="80" Margin=" 1" x:Name="styleBtn" Click="styleBtn_Click" Style="{DynamicResource ButtonStyle}">
                 <Image Source="/Icons/color.png" />
@@ -79,7 +82,7 @@
                     </ListBox.ItemContainerStyle>
                 </ListBox>
                 <FlowDocumentReader Grid.Column="2" Margin="1"  x:Name="flowDocReader" Style="{DynamicResource FlowDocumentStyle}">
-                    <FlowDocument x:Name="flowDoc" >
+                    <FlowDocument x:Name="flowDoc">
                         <Paragraph x:Name="Par">
                             Welcome to the application "Book Reader",
                         developed by students of the group 36pr31  IT Step Academy
