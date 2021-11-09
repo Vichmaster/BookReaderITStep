@@ -19,8 +19,8 @@ namespace Project11
     /// </summary>
     public partial class FontDialogBox : Window
     {
-        private Paragraph _par;
-        public FontDialogBox(Paragraph Par)
+        private FlowDocument _par;
+        public FontDialogBox(FlowDocument Par)
         {
             InitializeComponent();
             _par = Par;

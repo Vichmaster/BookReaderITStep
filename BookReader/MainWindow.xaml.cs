@@ -12,6 +12,8 @@ using System.Xml;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Project11
 {
@@ -20,21 +22,27 @@ namespace Project11
         private bool _currStyle;
         SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
         public List<Book> bookList { get; private set; } = new List<Book>(); //список книг
-
         public bool OpenList { get; set; }
+        /*=============для формата epub====================================*/
+        private string _tempPath;
+        private string _baseMenuXmlDiretory;
+        private List<string> _menuItems;
+        private int _currentPage;
+        /*=================================================================*/
         public MainWindow()
         {
             InitializeComponent();
             fromFile();//считываем сохранённые адресса в список
             bookListBox.MouseDoubleClick += new MouseButtonEventHandler(bookListBox_DoublClick);
             OpenList = false;
+            _menuItems = new List<string>();
         }
 
         private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e)//обработичк кнопки Открыть
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "TXT files(*.txt;*.fb2) | *.txt; *.fb2"
+                Filter = "TXT files(*.txt;*.fb2;*.epub) | *.txt; *.fb2; *.epub"
             };
 
             if (openFileDialog.ShowDialog() == true)
@@ -42,20 +50,17 @@ namespace Project11
                 string path = openFileDialog.FileName;
                 string _data = "Oops something wrong";
 
+                flowDocReader.Document.Blocks.Clear();
+                Par.Inlines.Clear();
 
                 decoderFiles(path,ref _data);
 
+                flowDocReader.Document = flowDoc;
+                // что бы не перепрыгивало на последнюю страницу
+                flowDocReader.ViewingMode = FlowDocumentReaderViewingMode.Scroll;
+                flowDocReader.ViewingMode = FlowDocumentReaderViewingMode.Page;
 
-                Par.Inlines.Clear();
-                Par.Inlines.Add(_data);
-
-                FlowDocument document = new FlowDocument();
-                document.Blocks.Add(Par);
-
-                flowDocReader.Document = document;
-
-               FileInfo file = new FileInfo(path);
-              
+               FileInfo file = new FileInfo(path);             
 
                 Book newBook = new Book(Path.GetFileNameWithoutExtension(path), false, path, file.Length);
 
@@ -66,9 +71,6 @@ namespace Project11
                     bookListBox.Items.Add(Path.GetFileNameWithoutExtension(path));//добавляем в список
                     toFile();//переписываем файл со списком
                 }
-              
-               
-
             }
         }
 
@@ -80,10 +82,9 @@ namespace Project11
                 {
                     foreach (Book item in bookList)
                     {                      
-                        sw.WriteLine(item._name+" "+item._path+" "+item._size+" "+item._favorites);
+                        sw.WriteLine(item._name+"#"+item._path+"#"+item._size+"#"+item._favorites);
                     }
                 }
-
             }
             catch (Exception e)
             {
@@ -103,9 +104,8 @@ namespace Project11
 
                         string fileLine;
                         while ((fileLine = sr.ReadLine()) != null)
-                        {
-                           
-                            string[] dataObj = fileLine.Split(' ');
+                        {                          
+                            string[] dataObj = fileLine.Split('#');
                            
                             if (File.Exists(dataObj[1]))
                                 bookList.Add(new Book(dataObj[0], Convert.ToBoolean(dataObj[3]), dataObj[1], Convert.ToDouble(dataObj[2])));
@@ -129,9 +129,7 @@ namespace Project11
             {
 
                 MessageBox.Show(e.Message, "Exeption");
-            }
-         
-
+            }        
         }
 
         private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)//закрываем программу
@@ -144,31 +142,23 @@ namespace Project11
             try
             {
                 StopPlay();
-
-                string selctedItem = ((ListBoxItem)bookListBox.SelectedItem).Content.ToString();
+                ListBoxItem li = (ListBoxItem)bookListBox.SelectedItem;
+                string selctedItem = li.Content.ToString();
                 foreach (Book item in bookList)
                 {
 
                     if (selctedItem == item._name)
                     {
-
-
                         string _data = "";
-
-
-                        decoderFiles(item._path, ref _data);
-
-
-
+                        flowDoc.Blocks.Clear();
                         Par.Inlines.Clear();
-                        Par.Inlines.Add(_data);
-
-                        FlowDocument document = new FlowDocument();
-                        document.Blocks.Add(Par);
-
-                        flowDocReader.Document = document;
+                        decoderFiles(item._path, ref _data);
                     }
                 }
+                flowDocReader.Document = flowDoc;
+                // что бы не перепрыгивало на последнюю страницу
+                flowDocReader.ViewingMode = FlowDocumentReaderViewingMode.Scroll;
+                flowDocReader.ViewingMode = FlowDocumentReaderViewingMode.Page;
             }
             catch (Exception) 
             {
@@ -195,13 +185,17 @@ namespace Project11
             }
             else
             {
-                string voice = new TextRange(Par.Inlines.FirstInline.ContentStart, Par.Inlines.LastInline.ElementEnd).Text;
-
+                string voice = new TextRange(flowDoc.ContentStart, flowDoc.ContentEnd).Text;
+                if (Regex.IsMatch(voice, "[а-яА-ЯеЁ]"))
+                {
+                    speechSynthesizer.SelectVoice("Microsoft Irina Desktop");
+                }
+                else
+                {
+                    speechSynthesizer.SelectVoice("Microsoft David Desktop");
+                }
                 speechSynthesizer.SpeakAsync($"{voice}");
-
             }
-
-
         }
 
         private void StopPlay()//остановка звука
@@ -284,22 +278,77 @@ namespace Project11
             AddFavoriteToFile();
             Fav_Show();
         }
-            private void decoderFiles(string path, ref string _data)
+        // обход xml дерева (для чтения fb2)
+        private static void MovesNodes(XmlNodeList nodes, FlowDocument flowDoc)
         {
-
+            Paragraph p = new Paragraph();
+            foreach (XmlNode node in nodes)
+            {
+                if (node.NodeType == XmlNodeType.Text)
+                {
+                    p.Inlines.Add(node.InnerText);
+                    flowDoc.Blocks.Add(p);
+                }
+                MovesNodes(node.ChildNodes, flowDoc);
+            }
+        }
+        // декодер для разных форматов
+        private void decoderFiles(string path, ref string _data)
+        {
             try
             {
                 switch (Path.GetExtension(path).ToLower())
                 {
                     case ".txt":
+                        epubHidden();
                         _data = File.ReadAllText(path, Encoding.Default);
+                        Par.Inlines.Add(_data);
+                        flowDoc.Blocks.Add(Par);
                         break;
-
                     case ".fb2":
-                        XElement el = XElement.Load(path);
-                        _data = el.Value;
+                        epubHidden();
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(path);
+                        XmlElement root = doc.DocumentElement;
+                        foreach (XmlNode node in root)
+                        {
+                            if (node.Name == "body")
+                            {
+                                MovesNodes(node.ChildNodes, flowDoc);
+                            }
+                        }
                         break;
-                    case ".epub": break;
+                    case ".epub":
+                        if (!Directory.Exists("Library"))
+                        {
+                            Directory.CreateDirectory("Library");
+                        }
+                        string fileName = Path.GetFileNameWithoutExtension(path);
+                        File.Copy(path, Path.Combine("Library", fileName + ".zip"), true);
+                        _tempPath = Path.Combine("Library", fileName);
+                        if (Directory.Exists(_tempPath))
+                        {
+                            FileUtility.DeleteDirectory(_tempPath);
+                        }
+                        FileUtility.UnZIPFiles(Path.Combine("Library", fileName + ".zip"), Path.Combine("Library", fileName));
+
+                        var containerReader = XDocument.Load(ConvertToMemmoryStream(Path.Combine("Library", fileName, "META-INF", "container.xml")));
+                        var baseMenuXmlPath = containerReader.Root.Descendants(containerReader.Root.GetDefaultNamespace() + "rootfile").First().Attribute("full-path").Value;
+                        XDocument menuReader = XDocument.Load(Path.Combine(_tempPath, baseMenuXmlPath));
+                        _baseMenuXmlDiretory = Path.GetDirectoryName(baseMenuXmlPath);
+                        var menuItemsIds = menuReader.Root.Element(menuReader.Root.GetDefaultNamespace() + "spine").Descendants()
+                            .Select(a => a.Attribute("idref").Value).ToList();
+                        _menuItems = menuReader.Root.Element(menuReader.Root.GetDefaultNamespace() + "manifest").Descendants()
+                            .Where(mn => menuItemsIds.Contains(mn.Attribute("id").Value)).Select(mn => mn.Attribute("href").Value).ToList();
+                        _currentPage = 0;
+                        string uri = GetPath(0);
+                        web.Visibility = Visibility.Visible;
+                        flowDocReader.Visibility = Visibility.Collapsed;
+                        NextButton.Visibility = Visibility.Visible;
+                        PreviousButton.Visibility = Visibility.Visible;
+                        audio.Visibility = Visibility.Collapsed;
+                        web.Navigate(uri);                        
+                        break;
                     case ".rtf": break;
                     case ".pdf": break;
                     default:
@@ -309,14 +358,36 @@ namespace Project11
             }
             catch (Exception e)
             {
-
                 MessageBox.Show(e.Message, "Exeption");
             }
         }
-
+        // для формата epub
+        public string GetPath(int index)
+        {
+            return String.Format("file:///{0}", Path.GetFullPath(Path.Combine(_tempPath, _baseMenuXmlDiretory, _menuItems[index])));
+        }
+        // для формата epub
+        public MemoryStream ConvertToMemmoryStream(string fillPath)
+        {
+            var xml = File.ReadAllText(fillPath);
+            byte[] encodedString = Encoding.UTF8.GetBytes(xml);
+            MemoryStream ms = new MemoryStream(encodedString);
+            ms.Flush();
+            ms.Position = 0;
+            return ms;
+        }
+        // для формата epub
+        public void epubHidden()
+        {
+            flowDocReader.Visibility = Visibility.Visible;
+            audio.Visibility = Visibility.Visible;
+            NextButton.Visibility = Visibility.Collapsed;
+            PreviousButton.Visibility = Visibility.Collapsed;
+            web.Visibility = Visibility.Collapsed;
+        }
         private void Font_Click(object sender, RoutedEventArgs e)
         {
-            FontDialogBox dialogBox = new FontDialogBox(Par);
+            FontDialogBox dialogBox = new FontDialogBox(flowDoc);
             dialogBox.Show();
         }
 
@@ -393,6 +464,52 @@ namespace Project11
             Application.Current.Resources.Clear();
             // добавляем загруженный словарь ресурсов
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+        }
+        // листание назад для epub
+        private void PreviousButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentPage >= 1)
+            {
+                _currentPage--;
+            }
+            else
+            {
+
+                PreviousButton.Visibility = Visibility.Hidden;
+            }
+            if (_currentPage == 1)
+            {
+                PreviousButton.Visibility = Visibility.Hidden;
+            }
+            if (_currentPage <= _menuItems.Count - 1)
+            {
+                NextButton.Visibility = Visibility.Visible;
+            }
+            string uri = GetPath(_currentPage);
+            web.Navigate(uri);
+        }
+        // листание вперед для epub
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentPage < _menuItems.Count - 1)
+            {
+                _currentPage++;
+            }
+            else
+            {
+                NextButton.Visibility = Visibility.Hidden;
+            }
+            if (_currentPage == _menuItems.Count - 1)
+            {
+                NextButton.Visibility = Visibility.Hidden;
+            }
+            if (_currentPage > 0)
+            {
+
+                PreviousButton.Visibility = Visibility.Visible;
+            }
+            string uri = GetPath(_currentPage);
+            web.Navigate(uri);
         }
     }
 }
